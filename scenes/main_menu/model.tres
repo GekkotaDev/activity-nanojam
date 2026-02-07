@@ -1,0 +1,7 @@
+[gd_resource type="Resource" format=3 uid="uid://31ogrvk8uddl"]
+
+[ext_resource type="Script" uid="uid://d2cww5d5rwihh" path="res://scenes/main_menu/model.gd" id="1_iemdl"]
+
+[resource]
+script = ExtResource("1_iemdl")
+metadata/_custom_type_script = "uid://bafe5br443l8c"

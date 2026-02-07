@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://cwl582j8t0d1b"]
+
+[ext_resource type="Theme" uid="uid://6shp5ck1tnja" path="res://assets/lib/FlatUI4/kenneyUI.tres" id="1_0ebjn"]
+[ext_resource type="Script" uid="uid://bgsqsh1odfywp" path="res://scenes/main_menu/ui.gd" id="2_ob46e"]
+[ext_resource type="Resource" uid="uid://31ogrvk8uddl" path="res://scenes/main_menu/model.tres" id="3_ob46e"]
+[ext_resource type="PackedScene" uid="uid://1fhvlcouyuhf" path="res://scenes/rooms/world_zero/first.tscn" id="3_uqeha"]
+
+[node name="MainMenu" type="Control" unique_id=2093492821 node_paths=PackedStringArray("nodes")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_0ebjn")
+script = ExtResource("2_ob46e")
+first_room = ExtResource("3_uqeha")
+nodes = {
+"play": NodePath("VBoxContainer/VBoxContainer/ButtonPlay"),
+"quit": NodePath("VBoxContainer/VBoxContainer/ButtonQuit")
+}
+resource_model = ExtResource("3_ob46e")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1986614540]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -305.0
+offset_top = -111.0
+offset_right = 307.0
+offset_bottom = 113.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 64
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=139877573]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "GRAVIT-EEE!!!"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=1826436884]
+layout_mode = 2
+
+[node name="ButtonPlay" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=428683893]
+layout_mode = 2
+text = "PLAY"
+
+[node name="ButtonQuit" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=341059423]
+layout_mode = 2
+text = "Quit"

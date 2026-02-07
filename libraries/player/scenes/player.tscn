@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://d30uh8bho2sga"]
+
+[ext_resource type="Script" uid="uid://curl6fuycy7ml" path="res://libraries/player/scenes/player.gd" id="1_imd32"]
+[ext_resource type="Texture2D" uid="uid://cnxuahyr1gjqb" path="res://assets/lib/1-Bit Pack/Tilesheet/monochrome-transparent_packed.png" id="2_6unqk"]
+[ext_resource type="AudioStream" uid="uid://c834g3b0g7rno" path="res://assets/sfx/woosh.wav" id="2_pmgig"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6unqk"]
+atlas = ExtResource("2_6unqk")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pmgig"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pmgig"]
+size = Vector2(12, 14)
+
+[node name="Player" type="CharacterBody2D" unique_id=1228298125 node_paths=PackedStringArray("particles")]
+script = ExtResource("1_imd32")
+particles = NodePath("GPUParticles2D")
+sound_boom = ExtResource("2_pmgig")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=364456913]
+emitting = false
+texture = SubResource("AtlasTexture_6unqk")
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_pmgig")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1303191889]
+texture_filter = 1
+texture = ExtResource("2_6unqk")
+region_enabled = true
+region_rect = Rect2(400, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1574906483]
+shape = SubResource("RectangleShape2D_pmgig")
