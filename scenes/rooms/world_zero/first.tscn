@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d30uh8bho2sga" path="res://libraries/player/scenes/player.tscn" id="4_l2gqf"]
 [ext_resource type="Script" uid="uid://bcmxhaapkmsha" path="res://libraries/blast_off/scripts/blast_off.gd" id="4_x6qlk"]
 [ext_resource type="AudioStream" uid="uid://bsvls06ehjk4h" path="res://assets/sfx/OOF.wav" id="5_gnbx1"]
+[ext_resource type="Script" uid="uid://c4r14toxpqy3s" path="res://libraries/TestingGame/Scripts/GoTo2ndRoom.gd" id="8_i6b2h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eonxt"]
 texture = ExtResource("1_yrbur")
@@ -1539,6 +1540,9 @@ size = Vector2(16, 2)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w8e0a"]
 size = Vector2(16, 2)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7oi4m"]
+size = Vector2(18, 52.5)
+
 [node name="Node2D" type="Node2D" unique_id=11534328]
 script = ExtResource("1_gnbx1")
 music = ExtResource("2_l2gqf")
@@ -1660,3 +1664,13 @@ position = Vector2(414, 155)
 position = Vector2(-2, -9)
 shape = SubResource("RectangleShape2D_w8e0a")
 one_way_collision = true
+
+[node name="GoTo2ndRoom" type="Area2D" parent="StaticBodies" unique_id=509233958]
+position = Vector2(570, 139)
+script = ExtResource("8_i6b2h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBodies/GoTo2ndRoom" unique_id=143537797]
+position = Vector2(1, -0.75)
+shape = SubResource("RectangleShape2D_7oi4m")
+
+[connection signal="body_entered" from="StaticBodies/GoTo2ndRoom" to="StaticBodies/GoTo2ndRoom" method="_on_body_entered"]
