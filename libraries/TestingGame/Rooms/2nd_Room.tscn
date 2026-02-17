@@ -495,9 +495,6 @@ tile_set = SubResource("TileSet_oqlhr")
 position = Vector2(292, 163)
 zoom = Vector2(2, 2)
 
-[node name="Player" parent="." unique_id=1228298125 instance=ExtResource("2_7k7fw")]
-position = Vector2(19, 74)
-
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=258195370]
 visible = false
 
@@ -588,6 +585,8 @@ script = ExtResource("7_oqlhr")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/GoTo3rdRoom" unique_id=910296016]
 position = Vector2(1, -0.75)
 shape = SubResource("RectangleShape2D_mlo1q")
+
+[node name="Player" parent="." unique_id=1228298125 instance=ExtResource("2_7k7fw")]
 
 [connection signal="body_entered" from="Environment/Help" to="Environment/Help" method="_on_body_entered"]
 [connection signal="body_exited" from="Environment/Help" to="Environment/Help" method="_on_body_exited"]

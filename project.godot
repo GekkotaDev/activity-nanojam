@@ -41,6 +41,7 @@ Keychain="*uid://dgiia2xg7fsud"
 Pandora="*uid://dpp4cwvoisk5g"
 PhantomCameraManager="*uid://duq6jhf6unyis"
 QuestSystem="*uid://b77kvbliweux5"
+Global="*uid://d1sw3oh0664jq"
 
 [debug_draw_3d]
 

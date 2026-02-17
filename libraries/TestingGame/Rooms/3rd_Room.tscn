@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://d30uh8bho2sga" path="res://libraries/player/scenes/player.tscn" id="2_ct7am"]
 [ext_resource type="Script" uid="uid://bcmxhaapkmsha" path="res://libraries/blast_off/scripts/blast_off.gd" id="3_yrvpo"]
 [ext_resource type="AudioStream" uid="uid://bsvls06ehjk4h" path="res://assets/sfx/OOF.wav" id="4_5dknd"]
-[ext_resource type="Script" uid="uid://c4r14toxpqy3s" path="res://libraries/TestingGame/Scripts/GoTo2ndRoom.gd" id="5_ij331"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u5s1u"]
 texture = ExtResource("1_uu7fp")
@@ -485,27 +484,29 @@ size = Vector2(89, 10)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l11vo"]
 size = Vector2(48, 17)
 
-[sub_resource type="GDScript" id="GDScript_uu7fp"]
-script/source = "extends StaticBody2D
-"
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kmg85"]
+size = Vector2(157, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x08xs"]
 size = Vector2(157, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aa2ob"]
 size = Vector2(32, 8)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s4ss0"]
+size = Vector2(32, 8)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_agrlg"]
 size = Vector2(49, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ks8pw"]
+size = Vector2(48, 11)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_ct7am"]
 b = Vector2(582, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v77vn"]
-size = Vector2(12, 330)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_x08xs"]
-size = Vector2(4.3409195, 36.264748)
+size = Vector2(8, 330)
 
 [node name="Node2D" type="Node2D" unique_id=1678736871]
 
@@ -519,7 +520,6 @@ position = Vector2(292, 163)
 zoom = Vector2(2, 2)
 
 [node name="Player" parent="." unique_id=1228298125 instance=ExtResource("2_ct7am")]
-position = Vector2(20, 61)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=258195370]
 visible = false
@@ -612,11 +612,16 @@ shape = SubResource("RectangleShape2D_l11vo")
 
 [node name="Spikes" type="StaticBody2D" parent="Environment" unique_id=2003761583]
 position = Vector2(80, 314)
-script = SubResource("GDScript_uu7fp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Spikes" unique_id=1696510045]
 position = Vector2(2.5, 1)
 shape = SubResource("RectangleShape2D_kmg85")
+
+[node name="Area2D" type="Area2D" parent="Environment/Spikes" unique_id=1310292207]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Spikes/Area2D" unique_id=1739477317]
+position = Vector2(2.5, 1)
+shape = SubResource("RectangleShape2D_x08xs")
 
 [node name="Spikes 2" type="StaticBody2D" parent="Environment" unique_id=2250203]
 position = Vector2(186, 293)
@@ -625,12 +630,24 @@ position = Vector2(186, 293)
 position = Vector2(6, 6)
 shape = SubResource("RectangleShape2D_aa2ob")
 
+[node name="Area2D" type="Area2D" parent="Environment/Spikes 2" unique_id=103896777]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Spikes 2/Area2D" unique_id=1470965436]
+position = Vector2(6, 6)
+shape = SubResource("RectangleShape2D_s4ss0")
+
 [node name="Spikes 3" type="StaticBody2D" parent="Environment" unique_id=103744154]
 position = Vector2(265, 232)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Spikes 3" unique_id=255002981]
 position = Vector2(-1.5, 4.5)
 shape = SubResource("RectangleShape2D_agrlg")
+
+[node name="Area2D" type="Area2D" parent="Environment/Spikes 3" unique_id=1901071164]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Spikes 3/Area2D" unique_id=1162000570]
+position = Vector2(-1, 4.5)
+shape = SubResource("RectangleShape2D_ks8pw")
 
 [node name="Exit Bounds 1" type="Area2D" parent="Environment" unique_id=1038188324]
 position = Vector2(0, -2)
@@ -644,16 +661,5 @@ shape = SubResource("SegmentShape2D_ct7am")
 position = Vector2(2, 165)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Boundary 1" unique_id=1223704741]
-position = Vector2(-4, -4)
+position = Vector2(-6, -4)
 shape = SubResource("RectangleShape2D_v77vn")
-
-[node name="GoTo2ndRoom" type="Area2D" parent="Environment" unique_id=11147973]
-position = Vector2(13, 72)
-script = ExtResource("5_ij331")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/GoTo2ndRoom" unique_id=558497041]
-position = Vector2(-6.6164603, -9.000748)
-scale = Vector2(1.2054868, 0.8824408)
-shape = SubResource("RectangleShape2D_x08xs")
-
-[connection signal="body_entered" from="Environment/GoTo2ndRoom" to="Environment/GoTo2ndRoom" method="_on_body_entered"]

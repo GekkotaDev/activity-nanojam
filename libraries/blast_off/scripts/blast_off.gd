@@ -16,7 +16,7 @@ func _on_actual_collision(body: Node2D) -> void:
 		
 		var dialog := AcceptDialog.new()
 		dialog.dialog_text = "YOU LOST!"
-		dialog.confirmed.connect(func(): get_tree().quit())
+		dialog.confirmed.connect(func(): get_tree().change_scene_to_file("res://scenes/main_menu/main_menu.tscn"))
 		
 		add_child(dialog)
 		dialog.popup_centered()
