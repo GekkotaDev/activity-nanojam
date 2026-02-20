@@ -4,6 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://cnxuahyr1gjqb" path="res://assets/lib/1-Bit Pack/Tilesheet/monochrome-transparent_packed.png" id="2_6unqk"]
 [ext_resource type="AudioStream" uid="uid://c834g3b0g7rno" path="res://assets/sfx/woosh.wav" id="2_pmgig"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8rqkj"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mclbc"]
+bg_color = Color(1, 0.22352941, 0.11764706, 1)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_6unqk"]
 atlas = ExtResource("2_6unqk")
 region = Rect2(96, 0, 16, 16)
@@ -17,8 +23,18 @@ size = Vector2(12, 14)
 
 [node name="Player" type="CharacterBody2D" unique_id=1228298125 node_paths=PackedStringArray("particles")]
 script = ExtResource("1_imd32")
-particles = NodePath("GPUParticles2D")
 sound_boom = ExtResource("2_pmgig")
+particles = NodePath("GPUParticles2D")
+
+[node name="HpBar" type="ProgressBar" parent="." unique_id=1915215633]
+offset_left = -11.0
+offset_top = -12.0
+offset_right = -7.0
+offset_bottom = 15.0
+scale = Vector2(5.471096, 0.12233879)
+theme_override_styles/background = SubResource("StyleBoxFlat_8rqkj")
+theme_override_styles/fill = SubResource("StyleBoxFlat_mclbc")
+show_percentage = false
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=364456913]
 emitting = false

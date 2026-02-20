@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://crco5v0k2yi33"
+path="res://.godot/imported/Help, Help Me! Sound Effect.mp3-9cf77873fde5ac6779a388f96db20822.mp3str"
+
+[deps]
+
+source_file="res://libraries/TestingGame/Sound Effects/Help, Help Me! Sound Effect.mp3"
+dest_files=["res://.godot/imported/Help, Help Me! Sound Effect.mp3-9cf77873fde5ac6779a388f96db20822.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
