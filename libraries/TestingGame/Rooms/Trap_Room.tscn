@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://df0tiuit0ky74"]
+
+[ext_resource type="VideoStream" uid="uid://cw8j2mmd0bhkn" path="res://libraries/TestingGame/Videos/Majin-Buu-explosion.ogv" id="1_gwsmk"]
+[ext_resource type="Script" uid="uid://oy4yvuq0jhwd" path="res://libraries/TestingGame/Scripts/VideoAutoPlay.gd" id="2_gwsmk"]
+
+[node name="Control" type="Control" unique_id=178570276]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=926058453]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("1_gwsmk")
+autoplay = true
+expand = true
+script = ExtResource("2_gwsmk")

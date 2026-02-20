@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cjt4jaf2tqxqt"]
+
+[ext_resource type="Script" uid="uid://duskewameivu" path="res://libraries/TestingGame/Scripts/VideoAutoPlayConditionNPC.gd" id="1_3s6px"]
+[ext_resource type="VideoStream" uid="uid://cdh6ojisnr1q3" path="res://libraries/TestingGame/Videos/Good Job.ogv" id="2_3ujc4"]
+[ext_resource type="VideoStream" uid="uid://cuslpbeab3742" path="res://libraries/TestingGame/Videos/Leaving Sid.ogv" id="3_8a8x5"]
+
+[node name="Node2D" type="Control" unique_id=866622293]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=785538652]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand = true
+script = ExtResource("1_3s6px")
+video_with_npc = ExtResource("2_3ujc4")
+video_alone = ExtResource("3_8a8x5")
