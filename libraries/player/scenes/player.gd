@@ -12,13 +12,15 @@ var recoil_velocity = 150.0
 
 
 func _ready() -> void:
+	print("!!! IF YOU SEE THIS, THE SCRIPT IS WORKING !!!")
+	
 	# Set the UI to match the Global value immediately
 	if hp_bar:
-		hp_bar.max_value = Global.player_max_hp
-		hp_bar.value = Global.player_hp
+		hp_bar.max_value = GlobalPlayerHp.player_max_hp
+		hp_bar.value = GlobalPlayerHp.player_hp
 		
 	# Check if we are coming from a scene transition
-	if Global.saved_player_position != Vector2.ZERO:
+	if GlobalPlayerPosition.saved_player_position != Vector2.ZERO:
 		
 		# --- ANTI-TRIGGER LOGIC ---
 		set_collision_layer_value(1, false)
@@ -30,13 +32,13 @@ func _ready() -> void:
 		var editor_x = global_position.x + offset_x
 		
 		# 2. Capture the Y height from the previous room
-		var exit_y = Global.saved_player_position.y
+		var exit_y = GlobalPlayerPosition.saved_player_position.y
 		
 		# 3. Apply them: New X (with offset), and Exit Y
 		global_position = Vector2(editor_x, exit_y)
 		
 		# 4. Clear the global data
-		Global.saved_player_position = Vector2.ZERO
+		GlobalPlayerPosition.saved_player_position = Vector2.ZERO
 		
 		print("SUCCESS: Player nudged right to: ", editor_x, " at Height: ", exit_y)
 		
@@ -77,6 +79,10 @@ func _physics_process(_delta: float) -> void:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 #
 	move_and_slide()
+
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	pass # Replace with function body.
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

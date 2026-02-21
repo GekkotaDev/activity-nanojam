@@ -8,12 +8,24 @@ func _script(events: EventBus, _model):
 		"play",
 		"pressed",
 		func():
-			# Reset the global position so the player starts at the 
-			# default editor position in the first room.
-			Global.saved_player_position = Vector2.ZERO
+			# 1. Reset Player Position & HP
+			GlobalPlayerPosition.saved_player_position = Vector2.ZERO
+			GlobalPlayerHp.player_hp = GlobalPlayerHp.player_max_hp
+			
+			# 2. Reset NPC Following State
+			# This ensures the NPC doesn't follow the player in a new game
+			GlobalFollowNpcPosition.is_following = false
+			
+			# 3. Reset Background Music
+			# If using the standard SoundManager, we stop current music 
+			# so the first room can start its track fresh.
+			if has_node("/root/SoundManager"):
+				var sm = get_node("/root/SoundManager")
+				sm.stop_music() 
+				# If your SoundManager has a specific reset function, use that instead.
 			
 			SceneManager.change_scene(first_room)
-	) # This closes the "play" connection
+	) 
 	
 	events.connect_of(
 		"quit",
@@ -21,4 +33,4 @@ func _script(events: EventBus, _model):
 		func():
 			get_tree().root.propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
 			get_tree().quit()
-	) 
+	)
